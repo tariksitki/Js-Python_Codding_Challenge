@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function myFunction() {
+            let user = prompt("Please enter leaving a space between a word a seperator and a number(How many times repetitions): ").split(" ");
+            console.log(user);
+
+            let word = user[0];
+            let seperator = user[1];
+            let repetition = +user[2];
+
+            let result = "";
+            
+            for (let i = 0; i <= repetition; i++) {
+                result += `${word}${seperator}`;
+                if (i == repetition) {
+                    result += word;
+                }
+            }
+            return result;
+        }
+        console.log(myFunction());
+    </script>
+
+</body>
+</html>
