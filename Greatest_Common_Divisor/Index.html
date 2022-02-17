@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function greatDivision() {
+            let user = prompt("Please Enter two Number to calculate greatest common Divisor (Please put a space between two numbers) ").split(" ");
+            // console.log(user);
+
+            let little_number = 0;
+            let big_number = 0;
+            let result = 0;
+
+      while (true) {
+        if (+user[0] > +user[1]) {
+            little_number = +user[1];
+            big_number = +user[0];
+            break;
+        }   else if (+user[0] < +user[1]) {
+            little_number = +user[0];
+            big_number = +user[1];
+            break;
+        }   else if (+user[0] == +user[1]) {
+                user = prompt("Please Enter two Number to calculate greatest common Divisor (Please put a space between two numbers) ").split(" ");
+        }
+      }      
+
+        // console.log("little_number = ", little_number);
+        // console.log("big_number", big_number);
+
+        for (let i = 0; i <= little_number; i++) {
+            if ((little_number % i == 0) && (big_number % i == 0)) {
+                result = i;
+            } else {
+                continue;
+            }
+        }
+
+        return `The Greatest Divisor of ${little_number} and ${big_number} is : ${result}`;
+        }
+
+        console.log(greatDivision());   
+        
+    </script>
+</body>
+</html>
