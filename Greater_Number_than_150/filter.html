@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+            //// filter function:
+            // The filter() method creates a new array filled with elements that pass a test provided by a function.
+
+            // The filter() method does not execute the function for empty elements.
+
+            // The filter() method does not change the original array.
+
+
+        let text = "Maradona spent 5 years at Argentinos Juniors, from 1976 to 1981 , scoring 115 goals in 167 appearances."
+
+        // let letters_a = text.indexOf("a");
+
+        function function1(x) {
+            
+           
+        }
+
+        let indexes_a = text.split("").filter(function1);
+
+        console.log(indexes_a);
+        
+
+
+
+
+
+
+    </script>
+
+                  <!-- Example2: -->
+
+
+    <input type="number" id="ageToCheck" value="30">
+
+    <button onclick="myFunction()">Try It</button>
+
+    <p id="demo"></p>
+
+
+    <script>
+
+    const ages = [32, 33, 12, 40];
+
+    function checkAge(age) {
+        return age > document.getElementById("ageToCheck").value;
+
+    }
+
+    function myFunction() {
+        document.getElementById("demo").innerHTML =  ages.filter(checkAge);
+    }
+
+    ///  filter icerisine önceden tanimlanmis bir func yazarken yanina () koymuyoruz
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
