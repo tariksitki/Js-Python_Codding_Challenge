@@ -39,5 +39,36 @@
         console.log(finder(250, [100, 125, 150, 700]))
 
     </script>
+
+
+
+
+    <script>
+
+            //// 2. Method:
+
+        const array3 = [10, 15, 3, 7];
+
+        function finder2(k) {
+            counter = 0;
+            for (let i of array3) {
+                if (array3.includes(k - i) && ((k - i) != i)) {
+                    counter ++;
+                } else {
+                    continue;
+                }
+            }
+            return counter > 0 ? "True" : "False";
+        }
+
+        console.log(finder2(17));
+        console.log(finder2(18));
+        console.log(finder2(25));
+        console.log(finder2(10));
+        console.log(finder2(14));
+        console.log(finder2(24));
+    
+    </script>
+
 </body>
 </html>
