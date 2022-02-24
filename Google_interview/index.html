@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+    // This is an interview question asked by Google.
+    // Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
+    // For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
+
+        function finder(k, array) {
+            let total = 0;
+            for (let i = 0; i < array.length; i++) {
+                for (let j = 0; j < array.length; j++) {
+                    
+                    if (array[i] == array[j]) {
+                        continue;
+                    } else {
+                        if (array[i] + array[j] == k) {
+                            total = k;
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+            }
+            return total ? "True" : "False";
+        }
+
+        console.log(finder(5, [1,2,3,4]))
+        console.log(finder(17, [10, 15, 3, 7]))
+        console.log(finder(250, [100, 125, 150, 700]))
+
+    </script>
+</body>
+</html>
