@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- This is an interview question asked by Amazon.
+Given an integer k and a string s, find the length of the longest substring that contains at most k distinct characters.
+For example, given s = "abcba" and k = 2, the longest substring with k distinct characters is "bcb". -->
+
+
+
+    <script>
+
+        // abcba
+
+       function longestString(string, k) {
+           let longest = "";
+            for (let i = 0; i < string.length - k + 1; i++) {
+                for (let j = string.length; j > i + k -1; j--) {
+                    const sub = string.slice(i, j);
+                    const distinct = new Set(sub);
+                    console.log(sub, distinct);
+                    if (distinct.size == k && sub.length > longest.length) {
+                        longest = sub;
+                    }
+                }
+            }
+            console.log(longest);;
+       }
+       longestString("abcba", 2);
+
+    </script>
+</body>
+</html>
