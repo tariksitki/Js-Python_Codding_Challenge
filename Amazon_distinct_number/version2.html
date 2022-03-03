@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+function longestString(string) {
+            let empty = "";
+            let longest = "";
+            for (let i = 0; i < string.length; i++) {
+                    const sub = string.slice(i);
+                    for (let k of sub) {
+                        if (!empty.includes(k)) {
+                            empty += k;
+                        } else break;
+                    }
+                    if (empty.length > longest.length) {
+                            longest = empty;
+                        }
+                    empty = "";
+            }
+            return longest;
+        } 
+        console.log(longestString("abcabcbb"));
+        console.log(longestString("bbbbb"));
+        console.log(longestString("pwwkew"));
+    </script>
+
+
+
+
+    <script>
+
+        // yusuf:
+
+let text = "abcabcbb";
+let [longest, temp] = ["", ""];
+
+for(let letter of text){
+   while(temp.includes(letter)){
+      temp = temp.slice(1);
+   }
+   temp += letter;
+   (temp.length > longest.length) && (longest = temp)
+}
+
+console.log(longest)
+    </script>
+
+
+
+
+
+    <script>
+
+        /// münir:
+
+        function longestPiece(s){
+    let longest = s.slice(0,1);
+    for (let i = 0; i <= s.length; i++) {
+        for (let j = s.length; j >= i; j--) {
+            longest = (new Set(s.slice(i,j)).size == s.slice(i,j).length 
+                    && s.slice(i,j).length > longest.length) 
+                    ? s.slice(i,j) : longest;
+        }
+    }
+    console.log(`The answer is "${longest}", with the length of ${longest.length}.`);
+}
+
+longestPiece("abcabcbb");   // The answer is "abc", with the length of 3.
+longestPiece("bbbbb");      // The answer is "b", with the length of 1.
+longestPiece("pwwkew");     // The answer is "wke", with the length of 3.
+    </script>
+
+
+
+
+    <script>
+
+        /// boran:
+
+
+        function longestSubstring(s) {
+    let _s = new Map();
+    for (const i in s) {
+        for (const j in s) {
+            if (new Set(s.slice(i, Number(j) + 1)).size == s.slice(i, Number(j) + 1).length) {
+                _s.set(s.slice(i, Number(j) + 1).length, s.slice(i, Number(j) + 1))
+            }
+        }
+    }
+    return _s.get(Math.max(..._s.keys()))
+}
+console.log(longestSubstring("abcabcbb"))
+console.log(longestSubstring("bbbbb"))
+console.log(longestSubstring("pwwkew"))
+    </script>
+
+</body>
+</html>
