@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        '(', '{', '[' are called "openers."
+')', '}', ']' are called "closers."
+Write an efficient function that tells us whether or not an input string's openers and closers are properly nested.
+
+Examples:
+
+"{ [ ] ( ) }" should return true
+"{ [ ( ] ) }" should return false
+"{ [ }" should return false
+Simply making sure each opener has a corresponding closer is not enough—we must also confirm that they are correctly ordered.
+For example, "{ [ ( ] ) }" should return false, even though each opener can be matched to a closer.
+    -->
+
+    <script>
+      let my_string = "([])[{}](()){[{[{[{[]}]}]}]}((((())))){{{{}}}}";
+
+      let braketValidator = (string) => {
+        while (string.includes("[]") || string.includes("{}") || string.includes("()"))  {
+
+          string = string.replace("{}", "").replace("[]", "").replace("()", "");
+        }
+        return string == "" ? "true" : "false";
+      };
+
+      console.log(braketValidator("{[{[{[{[]}]}]}]}"));
+
+      console.log(braketValidator(""));
+
+      console.log(braketValidator("([])[{}](()){[{[{[{[]}]}]}]}((((())))){{{{}}}}"));
+
+      console.log(braketValidator("([])[{}](()){[{[{[{[]}]}]}]}((((())))){{{{}}}"));
+
+    </script>
+  </body>
+</html>
