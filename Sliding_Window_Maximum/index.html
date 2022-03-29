@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // This is an interview question asked by Google.drawing
+
+      // Given an array of integers and a number k, where 1 <= k <= length of the array, compute the maximum values of each subarray of length k.
+
+      // given array = [10, 5, 2, 7, 8, 7] and k = 3, we should get: [10, 7, 8, 8], since:
+      // 10 = max(10, 5, 2)
+      // 7 = max(5, 2, 7)
+      // 8 = max(2, 7, 8)
+      // 8 = max(7, 8, 7)
+
+      // expected outcome:
+      // 10 = max(10, 5, 2)
+      // 7 = max(5, 2, 7)
+      // 8 = max(2, 7, 8)
+      // 8 = max(7, 8, 7)
+
+    let myFunction = (array, k) => {
+        for (let i = 0; i <= array.length - k; i++) {
+          let sliceArray = array.slice(i, i+k);
+          let maxSliceArray = Math.max(...sliceArray);
+
+          console.log(
+            `${maxSliceArray} = max(${sliceArray})`
+          );
+        }
+      };
+
+      myFunction([10, 5, 2, 7, 8, 7], 3);
+      console.log(" ");
+      myFunction([10, 5, 2, 7, 8, 7, 10, 11, 12, 13], 2);
+      console.log(" ")
+      myFunction([10, 5, 2, 7, 8, 7, 10, 11, 12, 13], 6);
+
+    </script>
+  </body>
+</html>
