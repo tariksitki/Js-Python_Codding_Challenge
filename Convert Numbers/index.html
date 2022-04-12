@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="border: 2px solid">
+      <label for="decimal">Converter Decimal Number to Binary</label> <br />
+      <br />
+      <input
+        type="text"
+        name=""
+        id="decimal"
+        placeholder="Please Enter a Decimal Number"
+      />
+      <br />
+      <br />
+      <button id="decimal-button">Decimal to Binary</button> <br /><br />
+      <button id="reset">Reset</button>
+      <p id="decimal-output"></p>
+    </div>
+
+    <script>
+        let Output = document.getElementById("decimal-output");
+      let output = [];
+      const Converter = () => {
+        if (Output.innerText) {
+            alert("Please click reset Button");
+            return;
+        }
+        let number = document.getElementById("decimal").value;
+
+        while (!(number == 0 || number == 1)) {
+          let remainder = number % 2;
+          number = parseInt(number / 2);
+          output.push(remainder);
+        }
+
+        let result = output.push(number);
+        document.getElementById("decimal-output").innerText = output
+          .reverse()
+          .join("");
+
+        document.getElementById("decimal").value = "";
+      };
+
+      let decimalButton = document.getElementById("decimal-button");
+      decimalButton.addEventListener("click", Converter);
+
+      let Reset = document.getElementById("reset");
+      Reset.addEventListener("click", () => {
+        document.getElementById("decimal").value = "";
+        document.getElementById("decimal-output").innerText = "";
+        output = [];
+        number = "";
+      });
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+                <!-- Binary to Decimal  -->
+
+    <div style="border: 2px solid; margin-top: 3rem">
+      <label for="binary">Converter Binary to Decimal Number</label> <br />
+      <br />
+      <input
+        type="text"
+        name=""
+        id="binary-input"
+        placeholder="Please Enter a Binary Number"
+      />
+      <br />
+      <br />
+      <button id="binary-button">Binary to Decimal</button> <br /><br />
+      <button id="reset2">Reset2</button>
+      <p id="binary-output"></p>
+    </div>
+
+    <script>
+      let BinaryButton = document.getElementById("binary-button");
+      let BinaryInput = document.getElementById("binary-input");
+      let BinaryOutput = document.getElementById("binary-output");
+      let result = 0;
+
+      const Converter2 = () => {
+        if (BinaryOutput.innerText) {
+            alert("Please click reset Button");
+            return;
+        }
+        let number2 = document.getElementById("binary-input").value;
+        
+        for (let i = 0; i <= number2.length-1; i++ ) {
+            result += (number2[i] * (2 ** (number2.length - i - 1)));
+            
+        }
+        BinaryOutput.innerText = result;
+        BinaryInput.value = "";
+      };
+
+      BinaryButton.addEventListener("click", Converter2);
+
+      let Reset2 = document.getElementById("reset2");
+      Reset2.addEventListener("click", () => {
+        BinaryOutput.innerText = "";
+        BinaryInput.value = "";
+        result = 0;
+      })
+      
+    </script>
+  </body>
+</html>
